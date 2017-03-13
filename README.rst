@@ -14,6 +14,10 @@ Compute scholarly metrics in Python with Pandas and NumPy.
         :target: https://scholarmetrics.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
+.. image:: https://codeclimate.com/github/Michael-E-Rose/scholarmetrics/badges/gpa.svg
+        :target: https://codeclimate.com/github/Michael-E-Rose/scholarmetrics
+        :alt: Code Climate
+
 
 Example
 -------
