@@ -7,6 +7,17 @@ scholarmetrics: Compute scholarly metrics
 
 
 ========
+Examples
+========
+
+To use scholarmetrics in a project:
+
+.. include:: ../README.rst
+   :start-after: Hirsch-index.
+   :end-before: Contributing
+
+
+========
 Contents
 ========
 

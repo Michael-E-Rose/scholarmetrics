@@ -15,6 +15,19 @@ Compute scholarly metrics in Python with Pandas and NumPy.
         :alt: Documentation Status
 
 
+Example
+-------
+
+J.E. Hirsch's h-index or Hirsch-index.
+
+.. code:: python
+
+    >>> from scholarmetrics import hindex
+    >>> citations = [6, 10, 5, 46, 0, 2]
+    >>> hindex(citations)
+    4
+
+
 Contributing
 ------------
 
