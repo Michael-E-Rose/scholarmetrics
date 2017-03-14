@@ -47,5 +47,7 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Operating System :: OS Independent',
         'Topic :: Scientific/Engineering :: Information Analysis',
-    ]
+    ],
+    test_suite='nose.collector',
+    tests_require=['nose']
 )
