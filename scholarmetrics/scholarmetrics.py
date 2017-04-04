@@ -3,7 +3,47 @@
 """Collection of common metrics for academic scholars."""
 import numpy as np
 
-__all__ = ['gindex', 'hindex']
+__all__ = ['euclidian', 'gindex', 'hindex']
+
+
+def euclidian(arr):
+    """
+    Calculate Euclidean index for an author.
+
+    An Euclidean index of a vector is the square root of the sum of
+    the squared elements.
+
+    Parameters
+    ----------
+    arr : array-like
+          Array of citations.
+
+    Returns
+    -------
+    eui : int
+         Euclidean index of the author for the given citations.
+
+    Examples
+    --------
+    >>> from scholarmetrics import euclidian
+    >>> citations = [6, 10, 5, 46, 0, 2]
+    >>> euclidian(citations)
+    47.75981574503821
+
+    Notes
+    -----
+    The Euclidean index was originally proposed by
+    Motty Perry and Philip J. Reny [1]_.
+
+    References
+    ----------
+    .. [1] Motty Perry and Philip J. Reny (2016):
+           "How to Count Citations If You Must",
+           *The American Economic Review*, 106(9), pp. 2722-2241.
+           DOI: 10.1257/aer.20140850
+    """
+    eui = np.linalg.norm(arr)
+    return eui
 
 
 def gindex(arr):
