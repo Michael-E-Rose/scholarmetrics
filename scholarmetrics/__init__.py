@@ -2,6 +2,9 @@
 
 __author__ = """Michael E. Rose"""
 __email__ = 'Michael.Ernst.Rose@gmail.com'
-__version__ = '0.1.0'
 
-from scholarmetrics import *
+from ._version import get_versions
+__version__ = get_versions()['version']
+del get_versions
+
+from scholarmetrics.scholarmetrics import *

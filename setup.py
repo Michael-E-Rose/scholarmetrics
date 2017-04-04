@@ -4,7 +4,7 @@
 from setuptools import setup
 
 import scholarmetrics
-
+import versioneer
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -17,7 +17,8 @@ requirements = [
 
 setup(
     name='scholarmetrics',
-    version=scholarmetrics.__version__,
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
     description="Compute scholarly metrics in Python with Pandas and NumPy",
     long_description=readme + '\n\n' + history,
     author="Michael E. Rose",
