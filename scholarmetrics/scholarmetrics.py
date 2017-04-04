@@ -3,10 +3,10 @@
 """Collection of common metrics for academic scholars."""
 import numpy as np
 
-__all__ = ['euclidian', 'gindex', 'hindex']
+__all__ = ['euclidean', 'gindex', 'hindex']
 
 
-def euclidian(arr):
+def euclidean(arr):
     """
     Calculate Euclidean index for an author.
 
@@ -25,9 +25,9 @@ def euclidian(arr):
 
     Examples
     --------
-    >>> from scholarmetrics import euclidian
+    >>> from scholarmetrics import euclidean
     >>> citations = [6, 10, 5, 46, 0, 2]
-    >>> euclidian(citations)
+    >>> euclidean(citations)
     47.75981574503821
 
     Notes

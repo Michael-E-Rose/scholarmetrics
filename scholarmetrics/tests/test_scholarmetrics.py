@@ -5,7 +5,7 @@
 
 import unittest
 
-from scholarmetrics.scholarmetrics import euclidian, gindex, hindex
+from scholarmetrics.scholarmetrics import euclidean, gindex, hindex
 
 
 class TestScholarmetrics(unittest.TestCase):
@@ -16,9 +16,9 @@ class TestScholarmetrics(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_euclidian(self):
+    def test_euclidean(self):
         citations = [6, 10, 5, 46, 0, 2]
-        received = euclidian(citations)
+        received = euclidean(citations)
         expected = 47.75981574503821
         self.assertAlmostEqual(received, expected)
 
