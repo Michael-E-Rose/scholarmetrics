@@ -1,8 +1,51 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """Collection of common metrics for academic scholars."""
+import numpy as np
 
-__all__ = ['hindex']
+__all__ = ['gindex', 'hindex']
+
+
+def gindex(arr):
+    """
+    Calculate g-index for an author.
+
+    An g-index of x means that the author's top x publications
+    together accumulated at least x^2 itations.
+
+    Parameters
+    ----------
+    arr : array-like
+          Array of citations.
+
+    Returns
+    -------
+    gi : int
+         g-index of the author for the given citations.
+
+    Examples
+    --------
+    >>> from scholarmetrics import gindex
+    >>> citations = [6, 10, 5, 46, 0, 2]
+    >>> gindex(citations)
+    6
+
+    Notes
+    -----
+    The g-index was originally proposed by Leo Egghe [1]_.  It excludes
+    uncited publications.
+
+    References
+    ----------
+    .. [1] Egghe, Leo (2006): "Theory and practise of the g-index",
+           *Scientometrics*, 69(1), pp. 131–152.
+           DOI: 10.1007/s11192-006-0144-7
+    """
+    arr = [n for n in arr if n > 0]
+    cum_sr = np.cumsum(sorted(arr, reverse=True))
+    sqr_idx = [n**2 for n in range(1, len(arr) + 1)]
+    gi = sum([c >= i for (c, i) in zip(cum_sr, sqr_idx)])
+    return gi
 
 
 def hindex(arr):
