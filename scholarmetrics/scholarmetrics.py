@@ -33,11 +33,11 @@ def euclidian(arr):
     Notes
     -----
     The Euclidean index was originally proposed by
-    Motty Perry and Philip J. Reny [1]_.
+    Motty Perry and Philip J. Reny [eu]_.
 
     References
     ----------
-    .. [1] Motty Perry and Philip J. Reny (2016):
+    .. [eu] Perry, M. and P. J. Reny (2016):
            "How to Count Citations If You Must",
            *The American Economic Review*, 106(9), pp. 2722-2241.
            DOI: 10.1257/aer.20140850
@@ -51,7 +51,7 @@ def gindex(arr):
     Calculate g-index for an author.
 
     An g-index of x means that the author's top x publications
-    together accumulated at least x^2 itations.
+    together accumulated at least :math:`x^2` citations.
 
     Parameters
     ----------
@@ -72,12 +72,12 @@ def gindex(arr):
 
     Notes
     -----
-    The g-index was originally proposed by Leo Egghe [1]_.  It excludes
+    The g-index was originally proposed by Leo Egghe [g]_.  It excludes
     uncited publications.
 
     References
     ----------
-    .. [1] Egghe, Leo (2006): "Theory and practise of the g-index",
+    .. [g] Egghe, L. (2006): "Theory and practise of the g-index",
            *Scientometrics*, 69(1), pp. 131–152.
            DOI: 10.1007/s11192-006-0144-7
     """
@@ -114,11 +114,11 @@ def hindex(arr):
 
     Notes
     -----
-    The h-index was originally proposed by Jorge E. Hirsch [1]_.
+    The h-index was originally proposed by Jorge E. Hirsch [h]_.
 
     References
     ----------
-    .. [1] J. E. Hirsch (2005): "An index to quantify
+    .. [h] Hirsch, J. E. (2005): "An index to quantify
            an individual's scientific research output",
            *National Academy of Sciences of the USA* 102(46).
            DOI:1 0.1073/pnas.0507655102
