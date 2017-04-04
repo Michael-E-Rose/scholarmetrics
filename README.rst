@@ -23,8 +23,8 @@ Compute scholarly metrics in Python with Pandas and NumPy.
         :alt: Build Status
 
 
-Example
--------
+Examples
+--------
 
 J.E. Hirsch's h-index or Hirsch-index.
 
@@ -34,6 +34,15 @@ J.E. Hirsch's h-index or Hirsch-index.
     >>> citations = [6, 10, 5, 46, 0, 2]
     >>> hindex(citations)
     4
+
+Euclidean index.
+
+.. code:: python
+
+    >>> from scholarmetrics import euclidean
+    >>> citations = [6, 10, 5, 46, 0, 2]
+    >>> euclidean(citations)
+    47.75981574503821
 
 
 Contributing
