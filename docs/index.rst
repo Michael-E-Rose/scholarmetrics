@@ -25,7 +25,7 @@ Contents
    :maxdepth: 1
 
    installation
-   scholarmetrics
+   metrics
    contributing
    authors
    history

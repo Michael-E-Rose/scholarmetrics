@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Tests for `scholarmetrics` module."""
+"""Tests for `metrics` module."""
 
 
 import unittest
 
-from scholarmetrics.scholarmetrics import euclidean, gindex, hindex
+from scholarmetrics import euclidean, gindex, hindex
 
 
-class TestScholarmetrics(unittest.TestCase):
+class TestMetrics(unittest.TestCase):
 
     def setUp(self):
         pass
