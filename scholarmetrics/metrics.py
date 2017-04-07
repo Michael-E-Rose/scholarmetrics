@@ -6,7 +6,7 @@ import numpy as np
 __all__ = ['euclidean', 'gindex', 'hindex']
 
 
-def euclidean(arr):
+def euclidean(arr, ignore_nan=True):
     """
     Calculate Euclidean index for an author.
 
@@ -16,12 +16,15 @@ def euclidean(arr):
     Parameters
     ----------
     arr : array-like
-          Array of citations.
+        Array of citations.
+
+    ignore_nan : bool (optional, default=True)
+        If True, remove nan values and return 0 if all values are nan.
 
     Returns
     -------
-    eui : int
-         Euclidean index of the author for the given citations.
+    eui : float
+        Euclidean index of the author for the given citations.
 
     Examples
     --------
@@ -38,10 +41,11 @@ def euclidean(arr):
     References
     ----------
     .. [eu] Perry, M. and P. J. Reny (2016):
-           "How to Count Citations If You Must",
-           *The American Economic Review*, 106(9), pp. 2722-2241.
-           DOI: 10.1257/aer.20140850
+            "How to Count Citations If You Must",
+            *The American Economic Review*, 106(9), pp. 2722-2241.
+            DOI: 10.1257/aer.20140850
     """
+    arr = _to_array(arr, ignore_nan)
     eui = np.linalg.norm(arr)
     return eui
 
@@ -56,12 +60,12 @@ def gindex(arr):
     Parameters
     ----------
     arr : array-like
-          Array of citations.
+        Array of citations.
 
     Returns
     -------
     gi : int
-         g-index of the author for the given citations.
+        g-index of the author for the given citations.
 
     Examples
     --------
@@ -73,7 +77,7 @@ def gindex(arr):
     Notes
     -----
     The g-index was originally proposed by Leo Egghe [g]_.  It excludes
-    uncited publications.
+    uncited publications.  nan values are silently treated as zero values.
 
     References
     ----------
@@ -81,14 +85,15 @@ def gindex(arr):
            *Scientometrics*, 69(1), pp. 131–152.
            DOI: 10.1007/s11192-006-0144-7
     """
-    arr = [n for n in arr if n > 0]
+    arr = _to_array(arr, ignore_nan=True)
+    arr = arr[np.nonzero(arr)]
     cum_sr = np.cumsum(sorted(arr, reverse=True))
     sqr_idx = [n**2 for n in range(1, len(arr) + 1)]
     gi = sum([c >= i for (c, i) in zip(cum_sr, sqr_idx)])
     return gi
 
 
-def hindex(arr):
+def hindex(arr, ignore_nan=True):
     """
     Calculate h-index for an author.
 
@@ -98,12 +103,15 @@ def hindex(arr):
     Parameters
     ----------
     arr : array-like
-          Array of citations.
+        Array of citations.
+
+    ignore_nan : bool (optional, default=True)
+        If True, ignore nan values and return 0 if all values are nan.
 
     Returns
     -------
     hi : int
-         H-index of the author for the given citations.
+        H-index of the author for the given citations.
 
     Examples
     --------
@@ -121,9 +129,23 @@ def hindex(arr):
     .. [h] Hirsch, J. E. (2005): "An index to quantify
            an individual's scientific research output",
            *National Academy of Sciences of the USA* 102(46).
-           DOI:1 0.1073/pnas.0507655102
+           DOI: 10.1073/pnas.0507655102
     """
+    arr = _to_array(arr, ignore_nan=True)  # remove nan in any case
+    if not ignore_nan and len(arr) == 0:  # return nan if all values are nan
+        return np.nan
     sr = sorted(arr, reverse=True)
     idx = range(1, len(sr) + 1)
     hi = sum([p <= c for (c, p) in zip(sr, idx)])
     return hi
+
+
+def _to_array(arr, ignore_nan):
+    """Helper function to remove or replace nan values from an
+    array-like object and return a cleaned numpy array.
+    """
+    arr = np.array(arr)
+    if ignore_nan:
+        return arr[np.isfinite(arr)]
+    else:
+        return arr
