@@ -26,7 +26,7 @@ Compute scholarly metrics in Python with Pandas and NumPy.
 Examples
 --------
 
-J.E. Hirsch's h-index or Hirsch-index.
+* J.E. Hirsch's h-index or Hirsch-index:
 
 .. code:: python
 
@@ -35,7 +35,7 @@ J.E. Hirsch's h-index or Hirsch-index.
     >>> hindex(citations)
     4
 
-Euclidean index.
+* Euclidean index:
 
 .. code:: python
 

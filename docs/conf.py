@@ -37,11 +37,13 @@ import scholarmetrics
 # -- General configuration ---------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-#needs_sphinx = '1.0'
+needs_sphinx = '1.5'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [
+    'sphinx.ext.viewcode',
+    'sphinx.ext.autosummary',
     'sphinx.ext.autodoc',
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
@@ -52,6 +54,9 @@ templates_path = ['_templates']
 
 # The suffix of source filenames.
 source_suffix = '.rst'
+
+# Whether to build documentation stubs automatically.
+autosummary_generate = True
 
 # The encoding of source files.
 #source_encoding = 'utf-8-sig'
@@ -121,7 +126,21 @@ html_theme = 'alabaster'
 # Theme options are theme-specific and customize the look and feel of a
 # theme further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
+html_theme_options = {
+    'github_user': 'Michael-E-Rose',
+    'github_repo': 'scholarmetrics',
+    'github_banner': 'true',
+    'github_button': 'false',
+    'travis_button': 'true',
+    'sidebar_width': '240px',
+}
+html_sidebars = {
+    '**': [
+        'about.html',
+        'navigation.html',
+        'searchbox.html',
+    ]
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
@@ -174,7 +193,7 @@ html_static_path = ['_static']
 #html_split_index = False
 
 # If true, links to the reST sources are added to the pages.
-#html_show_sourcelink = True
+html_show_sourcelink = True
 
 # If true, "Created using Sphinx" is shown in the HTML footer.
 # Default is True.

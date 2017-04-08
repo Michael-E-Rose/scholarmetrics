@@ -1,20 +1,31 @@
 scholarmetrics: Compute scholarly metrics
 =========================================
+scholarmetrics computes scholarly metrics for an array of citations:
 
 .. code-block:: console
 
     $ pip install scholarmetrics
 
-
-========
-Examples
-========
-
-To use scholarmetrics in a project:
+* h-index:
 
 .. include:: ../README.rst
-   :start-after: Hirsch-index.
+   :start-after: Hirsch-index:
    :end-before: Contributing
+
+=======
+Metrics
+=======
+
+Currently, scholarmetrics can compute the following metrics:
+
+.. automodule:: scholarmetrics
+
+.. autosummary::
+   :toctree: generated/
+
+   euclidean
+   gindex
+   hindex
 
 
 ========
@@ -25,7 +36,7 @@ Contents
    :maxdepth: 1
 
    installation
-   metrics
+   reference
    contributing
    authors
    history
