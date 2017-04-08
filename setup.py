@@ -49,6 +49,7 @@ setup(
         'Operating System :: OS Independent',
         'Topic :: Scientific/Engineering :: Information Analysis',
     ],
+    extras_require={'all': ['numpy']},
     test_suite='nose.collector',
     tests_require=['nose']
 )
