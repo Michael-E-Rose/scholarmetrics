@@ -1,0 +1,15 @@
+# Exclude from Code Climate Analysis
+exclude_paths:
+- "versioneer.py"
+- "scholarmetrics/_version.py"
+- "scholarmetrics/tests"
+- "docs"
+
+# Check for PEP8 adherance
+engines:
+  pep8:
+    enabled: true
+
+ratings:
+   paths:
+   - "**.py"
