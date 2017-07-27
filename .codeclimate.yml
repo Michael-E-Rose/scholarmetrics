@@ -1,7 +1,5 @@
 # Exclude from Code Climate Analysis
 exclude_paths:
-- "versioneer.py"
-- "scholarmetrics/_version.py"
 - "scholarmetrics/tests"
 - "docs"
 
