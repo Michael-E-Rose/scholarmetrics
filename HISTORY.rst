@@ -2,6 +2,14 @@
 History
 =======
 
+0.2.2 (2023-04-22)
+------------------
+
+* Use pyproject.toml for builds and drop pbr.
+* Drop support for Python 2.7.
+* Support for Python 3.6, 3.7, 3.8, 3.9 and 3.10.
+
+
 0.2.1 (2017-08-02)
 ------------------
 
