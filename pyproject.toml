@@ -1,31 +1,40 @@
 [build-system]
-requires = ["setuptools>=61.2", "setuptools_scm[toml]>=6.2"]
+requires = ["setuptools>=69", "setuptools_scm[toml]>=8"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "scholarmetrics"
 authors = [{name = "Michael E. Rose", email = "Michael.Ernst.Rose@gmail.com"}]
 maintainers = [{name = "Michael E. Rose", email = "Michael.Ernst.Rose@gmail.com"}]
-description = "Compute scholarly metrics in Python with Pandas and NumPy Edit"
+description = "Compute scholarly metrics in Python with NumPy"
 readme = "README.rst"
-license = {text = "MIT"}
+license = "MIT"
+license-files = ["LICENSE"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
     "Natural Language :: English",
     "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.5",
-    "Programming Language :: Python :: 3.6",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Scientific/Engineering :: Information Analysis",
 ]
 keywords = ["metrics", "researchers", "scientists", "academics"]
 dynamic = ["version"]
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.20"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+]
+docs = [
+    "sphinx",
+]
 
 [project.urls]
 Homepage = "https://github.com/Michael-E-Rose/scholarmetrics"
@@ -33,8 +42,8 @@ Homepage = "https://github.com/Michael-E-Rose/scholarmetrics"
 "Documentation (stable)" = "https://scholarmetrics.readthedocs.io/en/stable/"
 "Documentation (latest)" = "https://scholarmetrics.readthedocs.io/en/latest/"
 
-[tool.distutils.bdist_wheel]
-universal = 1
+[tool.pytest.ini_options]
+testpaths = ["scholarmetrics/tests"]
 
 [tool.setuptools]
 include-package-data = false

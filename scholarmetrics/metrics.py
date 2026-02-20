@@ -1,12 +1,12 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 """Collection of common metrics for academic scholars."""
+
 import numpy as np
+import numpy.typing as npt
 
 __all__ = ['euclidean', 'gindex', 'hindex']
 
 
-def euclidean(arr, ignore_nan=True):
+def euclidean(arr: npt.ArrayLike, ignore_nan: bool = True) -> float:
     """
     Calculate Euclidean index for an author.
 
@@ -50,7 +50,7 @@ def euclidean(arr, ignore_nan=True):
     return eui
 
 
-def gindex(arr):
+def gindex(arr: npt.ArrayLike) -> int:
     """
     Calculate g-index for an author.
 
@@ -93,7 +93,7 @@ def gindex(arr):
     return gi
 
 
-def hindex(arr, ignore_nan=True):
+def hindex(arr: npt.ArrayLike, ignore_nan: bool = True) -> int | float:
     """
     Calculate h-index for an author.
 
@@ -140,7 +140,7 @@ def hindex(arr, ignore_nan=True):
     return hi
 
 
-def _to_array(arr, ignore_nan):
+def _to_array(arr: npt.ArrayLike, ignore_nan: bool) -> np.ndarray:
     """Helper function to remove or replace nan values from an
     array-like object and return a cleaned numpy array.
     """
