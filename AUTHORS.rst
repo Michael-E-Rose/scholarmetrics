@@ -10,4 +10,4 @@ Development Lead
 Contributors
 ------------
 
-None yet.
+* Nils A. Herrmann <nils_herrmann@outlook.de>
