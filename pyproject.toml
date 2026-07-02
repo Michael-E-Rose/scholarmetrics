@@ -25,7 +25,7 @@ classifiers = [
 keywords = ["metrics", "researchers", "scientists", "academics"]
 dynamic = ["version"]
 requires-python = ">=3.10"
-dependencies = ["numpy>=1.20"]
+dependencies = ["numpy>=1.20", "pybliometrics", "tqdm"]
 
 [project.optional-dependencies]
 dev = [
